@@ -1,0 +1,38 @@
+<h1>Products List</h1>
+<a href='/products/new'>
+  New Product
+</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>In Stock ?</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.description %></td>
+        <td><%= product.status == true ? "Available" : "Not Available" %></td>
+        <td>
+          <a href="/payment/default/<%= product.id %>">
+            Buy Now
+          </a>
+        </td>
+        <td>
+          <a href="/carts/add/<%= product.id %>">
+            Add to cart
+          </a>
+        </td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>

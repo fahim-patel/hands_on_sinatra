@@ -1,0 +1,23 @@
+<h2>Your Orders</h2>
+
+<% if @orders.present? %>
+  <% @orders.each do |order|%>
+    <div class='row'>
+        <h3>Order</h3>
+        <b>Order No</b> - <%= order.order_no %><br>
+        <b>Total Price</b> - <%= order.total_price %><br>
+        <b>Date</b> - <%= order.created_at.strftime("%m/%d/%Y %I:%M%p") %><br>
+        <ul>
+          <h3>Product</h3>
+          <% order.products.each do |product|%>
+            <li>
+              <a href="/products/<%= product.id%>"><%= product.name %></a>
+            </li>
+          <%end%>
+        </ul>
+    </div>
+    <hr style="border: solid #C81818;">
+  <%end%>
+<% else %>
+  No orders till now. We have interesting offers!!!
+<% end %>

@@ -1,0 +1,44 @@
+<form action="/products" method='post'>
+  <fieldset>
+    <% if @product.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <legend>New Product Form</legend>
+      <div class="row">
+        <div class="small-9 columns">
+          <label>Name
+            <input id="product_name" name="product[name]" type="text">
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-9 columns">
+          <label>Description
+            <input id="product_name" name="product[description]" type="text">
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-9 columns">
+          <label>Price
+            <input id="product_name" name="product[price]" type="text">
+          </label>
+        </div>
+      </div>
+
+      
+    <input type="submit" value="Create Product" class='button tiny radius' style='border-radius: 8px;'>
+  </fieldset>  
+</form>
+
+
+

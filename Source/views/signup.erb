@@ -1,0 +1,49 @@
+<form action="/customers" method='post'>
+  <fieldset>
+    <% if @customer.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <legend>Registration Form</legend>
+      <div class="row">
+        <div class="small-9 columns">
+          <label>FirstName
+            <input id="customer_name" name="customer[firstname]" type="text" required>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-9 columns">
+          <label>LastName
+            <input id="customer_name" name="customer[lastname]" type="text" required>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-9 columns">
+          <label>Email
+            <input id="customer_name" name="customer[email]" type="email" required>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-9 columns">
+          <label>Password
+            <input id="customer_name" name="customer[password]" type="password" required>
+          </label>
+        </div>
+      </div>
+
+      
+    <input type="submit" value="Go" class='button tiny radius' style='border-radius: 8px;'>
+  </fieldset>  
+</form>

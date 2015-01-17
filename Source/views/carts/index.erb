@@ -1,0 +1,29 @@
+<h1>Products in your cart</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>In Stock ?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.description %></td>
+        <td><%= product.status == true ? "Available" : "Not Available" %></td>
+        <td>
+          <a href="/products/<%= product.id %>">
+            Show
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

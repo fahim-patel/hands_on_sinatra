@@ -1,0 +1,6 @@
+development:
+  adapter: mysql2
+  database: ecom_dev
+  username: root
+  password: rails123
+  host: localhost

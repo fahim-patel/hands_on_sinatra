@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Sinatra HandsOn</title>
+	    <link href="/css/foundation.min.css" rel="stylesheet" type="text/css" />
+	    <script src="/js/vendor/modernizr.js"></script>
+	    <script src="/js/vendor/jquery.js"></script>
+	    <script src="/js/foundation.min.js"></script>
+	    <script src="/js/foundation/foundation.alert.js"></script>
+	    <script type="text/javascript">
+		    $(document).ready(function() {     
+		      $(document).foundation();
+		    });
+	    </script>
+	</head>  
+	<body>
+	    <div class='row'>
+		  <% if current_user %>
+		    Logged in as <%= current_user.email %>.
+		    <a href="/carts" >Your Cart</a> &nbsp;&nbsp;
+		    <a href="/orders" >Your Orders</a> &nbsp;&nbsp;
+		    <a href="/products" >Products</a>&nbsp;&nbsp;
+		    <a href="/logout" >Logout </a>
+		  <% else %>
+		    <a href="/customers/new" >SignUp</a>&nbsp;&nbsp;
+		    <a href="/">Login</a>&nbsp;&nbsp;
+		  <% end %>
+		  
+		  <% if flash[:notice].present? %>
+		    <div data-alert class="alert-box round success flash-msg">
+		      <%= flash[:notice] %>
+		      <a href="#" class="close">&times;</a>
+		    </div>
+		   <% end %>
+           <%= yield %>
+	    </div>
+	</body>
+</html>
+
